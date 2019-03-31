@@ -1,8 +1,27 @@
-import React from 'react'
 import styled from 'styled-components'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
-const StyledOutboundLink = styled(OutboundLink)`
+export const Layout = styled.div`
+  margin-top: 20px;
+
+  @media (max-width: 600px) {
+    margin-top: inherit;
+  }
+`
+
+export const Highlight = styled.span`
+  background-image: linear-gradient(
+    -100deg,
+    rgba(168, 220, 217, 0),
+    rgba(168, 220, 217, 0.33) 10%,
+    rgba(168, 220, 217, 0.66) 85%,
+    rgba(168, 220, 217, 0)
+  );
+`
+
+export const StyledOutboundLink = styled(OutboundLink).attrs(() => ({
+  target: '_blank'
+}))`
   position: relative;
   font-weight: 600;
   text-decoration: none;
@@ -33,29 +52,3 @@ const StyledOutboundLink = styled(OutboundLink)`
     transform: scaleX(1);
   }
 `
-
-const First = styled.p`
-  margin-bottom: 0;
-  @media (min-width: 500px) {
-    float: left;
-    display: block;
-  }
-`
-const Second = styled.p`
-  @media (min-width: 500px) {
-    float: right;
-    display: block;
-    /* float: left; */
-  }
-`
-
-export default () => (
-  <div>
-    <First>&copy; 2019 Dalton Craven</First>
-    <Second>
-      <StyledOutboundLink href="https://github.com/cravend/portfolio">
-        View Source on GitHub
-      </StyledOutboundLink>
-    </Second>
-  </div>
-)
