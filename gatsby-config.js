@@ -25,7 +25,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: 'UA-38154009-2'
+        trackingId: 'UA-38154009-3'
       }
     },
     `gatsby-transformer-sharp`,
