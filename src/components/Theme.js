@@ -1,4 +1,5 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+import { Link } from 'gatsby'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
 export const Layout = styled.div`
@@ -19,36 +20,45 @@ export const Highlight = styled.span`
   );
 `
 
+const linkStyles = () =>
+  css`
+    position: relative;
+    font-weight: 600;
+    text-decoration: none;
+    color: #000;
+
+    :hover {
+      color: #000;
+    }
+
+    :before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #a8dcd9;
+      visibility: hidden;
+      -webkit-transform: scaleX(0);
+      transform: scaleX(0);
+      -webkit-transition: all 0.3s ease-in-out 0s;
+      transition: all 0.3s ease-in-out 0s;
+    }
+
+    :hover:before {
+      visibility: visible;
+      -webkit-transform: scaleX(1);
+      transform: scaleX(1);
+    }
+  `
+
+export const StyledLink = styled(Link)`
+  ${linkStyles};
+`
+
 export const StyledOutboundLink = styled(OutboundLink).attrs(() => ({
   target: '_blank'
 }))`
-  position: relative;
-  font-weight: 600;
-  text-decoration: none;
-  color: #000;
-
-  :hover {
-    color: #000;
-  }
-
-  :before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: #a8dcd9;
-    visibility: hidden;
-    -webkit-transform: scaleX(0);
-    transform: scaleX(0);
-    -webkit-transition: all 0.3s ease-in-out 0s;
-    transition: all 0.3s ease-in-out 0s;
-  }
-
-  :hover:before {
-    visibility: visible;
-    -webkit-transform: scaleX(1);
-    transform: scaleX(1);
-  }
+  ${linkStyles};
 `

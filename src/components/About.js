@@ -1,5 +1,5 @@
 import React from 'react'
-import { Layout } from '../components/Theme'
+import { Layout, StyledOutboundLink } from '../components/Theme'
 
 export default () => (
   <Layout>
@@ -12,7 +12,9 @@ export default () => (
       about the STEM fields and have helped me realize that I want to study
       computer science. Below is a collection of internships, projects, and
       other experiences that have helped shape my decision to study in this
-      field.
+      field. You can also{' '}
+      <StyledOutboundLink href="/resume.pdf">view my résumé</StyledOutboundLink>
+      .
     </p>
   </Layout>
 )
